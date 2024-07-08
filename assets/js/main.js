@@ -20,7 +20,7 @@ async function loadRandomCats() {
         .catch(function(error){
             if (error) {
                 errorMessageRandom.innerHTML = `
-                    <p class="px-4 pt-4"><i class="fa-solid fa-circle-exclamation"></i> Se produjo un error:</p>
+                    <p class="px-4 pt-4"><i class="fa-solid fa-circle-exclamation"></i> There was an error:</p>
                     <p class="px-4 pt-2">${error.message}</p>
                     <p class="px-4 pt-2 pb-4">${error.request.response}</p>
                 `;
@@ -43,7 +43,7 @@ async function loadRandomCats() {
         icon.classList.add('fa-solid','fa-plus','mx-1','font-semibold');
         const btn = document.createElement('button');
         btn.classList.add('text-white','w-auto','rounded-md','bg-blue-700','px-3','py-1.5','text-sm','hover:bg-blue-800');
-        const btnText = document.createTextNode('Añadir a Favoritos');
+        const btnText = document.createTextNode('Add to Favorites');
         
         btn.appendChild(icon);
         btn.appendChild(btnText);
@@ -61,7 +61,7 @@ async function loadFavouriteCats() {
         .catch(function(error){
             if (error) {
                 errorMessageFavorite.innerHTML = `
-                    <p class="px-4 pt-4"><i class="fa-solid fa-circle-exclamation"></i> Se produjo un error:</p>
+                    <p class="px-4 pt-4"><i class="fa-solid fa-circle-exclamation"></i> There was an error:</p>
                     <p class="px-4 pt-2">${error.message}</p>
                     <p class="px-4 pt-2 pb-4">${error.request.response}</p>
                 `;
@@ -84,7 +84,7 @@ async function loadFavouriteCats() {
         icon.classList.add('fa-regular','fa-trash-can','mx-1','font-light');
         const btn = document.createElement('button');
         btn.classList.add('text-white','w-auto','rounded-md','bg-indigo-600','px-3','py-1.5','text-sm','hover:bg-indigo-700');
-        const btnText = document.createTextNode('Quitar de favoritos');
+        const btnText = document.createTextNode('Remove from favorites');
         
         btn.appendChild(icon);
         btn.appendChild(btnText);
@@ -125,7 +125,7 @@ async function loadPreviewImage() {
 
     if (!archivo || !archivo.length) {
         containerPreview.innerHTML = `
-            <p class="text-center text-white font-thin"><i class="fa-regular fa-image mx-2"></i>Vista previa</p>
+            <p class="text-center text-white font-thin"><i class="fa-regular fa-image mx-2"></i>Preview</p>
         `;
     } else {
         containerPreview.innerHTML = "";
@@ -163,7 +163,7 @@ async function uploadPhotoCat() {
     const data = await res.json();
     
     if (res.status !== 201) {
-        // spanError.innerHTML = `Hubo un error al subir michi: ${res.status} ${data.message}`
+      
         Swal.fire({
             icon: "error",
             text: "An error occurred and the photo could not be uploaded",
@@ -175,7 +175,7 @@ async function uploadPhotoCat() {
         });
         
         containerPreview.innerHTML = `
-            <p class="text-center text-white font-thin"><i class="fa-regular fa-image mx-2"></i>Vista previa</p>
+            <p class="text-center text-white font-thin"><i class="fa-regular fa-image mx-2"></i>Preview</p>
         `;
         inputPreview.value = "";
         saveFavouriteCat(data.id);
