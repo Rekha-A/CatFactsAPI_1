@@ -1,0 +1,27 @@
+/******* CONFIGURACIÓN GENERAL *******/
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/******* HEADER *******/
+
+
+/******* SECCIÓN GATOS ALEATORIOS *******/
+
+
+/******* SECCIÓN SUBIR FOTOS GATOS *******/
+
+
+/******* SECCIÓN GATOS FAVORITOS *******/
+
+
+/******* SECCIÓN FOOTER *******/
+.footer {
+    background: lightgrey;
+    height: 6vh;
+    max-width: 900px;
+    margin: 0 auto;
+}

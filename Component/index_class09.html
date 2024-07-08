@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET: Reading my favorite michis</title>
+</head>
+<body>
+    <h1>Michis App</h1>
+
+    <span id="error">--</span>
+
+    <section id="randomMichis">
+        <h2>Random michis</h2>
+
+        <article>
+            <img id="img1" width="150" alt="Random kitten photo">
+            <button>Save michi to favorites</button>
+        </article>
+
+        <article>
+            <img id="img2" width="150" alt="Random kitten photo">
+            <button>Save michi to favorites</button>
+        </article>
+
+              <button onclick="loadRandomMichis()">Reload</button>
+    </section>
+    
+    <section id="favoritesMichis">
+        <h2>Favorite michis</h2>
+
+        <article>
+            <img id="img4" width="150" alt="Random kitten photo">
+            <button>Remove michi from favorites</button>
+        </article>
+    </section>
+
+    <script>
+        const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_b4Q3YyUrueAqjk7Ch6UKAdsd64vDQEcUCTCqjtWNczbGdixz98TD4R9rVfmn5iHh';
+
+       
+        const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites?limit=2&api_key=live_b4Q3YyUrueAqjk7Ch6UKAdsd64vDQEcUCTCqjtWNczbGdixz98TD4R9rVfmn5iHh';
+
+        const spanError = document.getElementById('error');
+     
+        async function loadRandomMichis() {
+            const res = await fetch(API_URL);
+            const data = await res.json();
+
+            console.log('Random')
+            console.log(data)
+
+            if (res.status !== 200) {
+                spanError.textContent = "There was a mistake: " + res.status;
+            } else {
+                const img1 = document.getElementById('img1');
+                const img2 = document.getElementById('img2');
+                // const img3 = document.getElementById('img3');
+                
+                img1.src = data[0].url;
+                img2.src = data[1].url;
+                // img3.src = data[2].url;
+            }
+
+        }
+
+      
+        async function loadFavoritesMichis() {
+            const res = await fetch(API_URL_FAVORITES);
+            const data = await res.json();
+            console.log('Favorites')
+            console.log(data)
+
+            if (res.status !== 200) {
+                spanError.innerHTML = "There was a mistake: " + res.status + "<br>" + data.message;
+            }
+        }
+        
+        loadRandomMichis();
+        loadFavoritesMichis();
+    </script>
+</body>
+</html>

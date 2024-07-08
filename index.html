@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="./assets/icon/cat-solid.svg">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS propio -->
+    <!-- <link rel="stylesheet" href="./assets/css/styles.css"> -->
+    <title>Neko Community</title>
+</head>
+<body class="bg-zinc-900">
+    <header class="grid justify-items-center mx-auto text-center max-w-screen-lg bg-zinc-700 rounded-sm my-3">
+        <h1 class="text-5xl text-white p-4"><i class="fa-solid fa-cat"></i>Neko Community</h1>
+    </header>
+
+    <main class="grid mx-auto max-w-screen-lg">
+        <section class="bg-zinc-700 rounded-sm p-2 mb-3">
+            <h2 class="text-3xl text-center text-white pb-2">Here you will see cards with the cutest Nekos in the world</h2>
+            <div id="randomCats-error" class="font-bold text-red-400 bg-gray-800 rounded-lg mx-8 mb-4"></div>
+
+            <div id="randomCats-container" class="flex flex-wrap justify-center gap-6">
+               
+            </div>
+            <div class="flex flex-wrap justify-center my-6">
+                <button class="w-48 text-md text-white bg-indigo-600 rounded-lg shadow-lg font-semibold px-6 py-2 
+                transition duration-400 ease-in-out transform hover:-translate-y-0.5 hover:bg-indigo-500" 
+                onclick="loadRandomCats()">
+                <i class="fa-solid fa-rotate mx-2 font-semibold"></i>Reload</button>
+            </div>
+        </section>
+
+        <section class="grid justify-items-center content-center h-auto bg-zinc-700 rounded-sm p-4 mb-3">
+            <h2 class="text-3xl text-white">Upload a photo of your Neko</h2>
+            <h3 class="text-2xl text-white">And share its beauty with the rest of the world</h3>
+            <form id="uploadingForm" class="grid justify-items-center max-w-lg mt-6">
+              
+                <input class="w-full bg-zinc-200 border-2 border-neutral-100 rounded-md cursor-pointer p-1 my-4 mr-2" id="file" type="file" name="file" accept="image/*">
+                <div id="imgPreviewContainer" class="grid content-center h-52 w-52 border-dashed border-4 rounded-lg border-gray-500 mt-4">
+                    <p class="text-center text-white font-thin"><i class="fa-regular fa-image mx-2"></i>Preview</p>
+                </div>
+                <button class="w-56 text-md text-white bg-indigo-600 rounded-lg shadow-lg font-semibold px-6 py-2 mt-8 
+                transition duration-400 ease-in-out transform hover:-translate-y-0.5 hover:bg-indigo-500" 
+                type="button" onclick="uploadPhotoCat()">
+                <i class="fa-solid fa-cloud-arrow-up mx-2 font-semibold"></i>Upload photo</button>
+            </form>
+        </section>
+
+        <section class="h-auto bg-zinc-700 rounded-sm p-4 mb-3">
+            <h2 class="text-3xl text-center text-white pb-6">My favorite Nekos</h2>
+            
+            <div id="favouritesCats-error" class="font-bold text-red-400 bg-gray-800 rounded-lg mx-8 mb-4"></div>
+            
+            <div id="favoriteCats-container" class="flex flex-wrap justify-center gap-6">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="grid mx-auto max-w-screen-lg mb-3">
+        <div class="flex flex-col text-center text-white bg-zinc-700 rounded-sm p-6">
+            <p class="font-bold">Developed by REKHA A</p>
+            
+            <p class="font-light">JULY 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
