@@ -52,7 +52,7 @@ async function loadFavouriteMichis() {
         const section = document.getElementById('favoriteMichis')
         section.innerHTML = "";
         const h2 = document.createElement('h2');
-        const h2Text = document.createTextNode('Michis favoritos');
+        const h2Text = document.createTextNode('Favorite Michis');
         h2.appendChild(h2Text);
         section.appendChild(h2);
         
